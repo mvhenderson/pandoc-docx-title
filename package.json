@@ -1,0 +1,33 @@
+{
+  "name": "docx-title",
+  "version": "0.0.0",
+  "description": "Adds title page to docx",
+  "scripts": {
+    "test": "sh ./test/test.sh"
+  },
+  "bin": {
+    "docx-margin-narrow": "bin/docx-margin-narrow.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mvhenderson/pandoc-docx-title.git"
+  },
+  "keywords": [
+    "pandoc",
+    "pandocfilter",
+    "docx"
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "author": "Mike Henderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mvhenderson/pandoc-docx-title/issues"
+  },
+  "homepage": "https://github.com/mvhenderson/pandoc-docx-title",
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "pandoc-filter": "~0.1.2"
+  }
+}
