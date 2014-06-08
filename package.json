@@ -1,12 +1,12 @@
 {
   "name": "docx-title",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adds title page to docx",
   "scripts": {
     "test": "sh ./test/test.sh"
   },
   "bin": {
-    "docx-margin-narrow": "bin/docx-margin-narrow.js"
+    "docx-title": "bin/docx-title.js"
   },
   "repository": {
     "type": "git",
