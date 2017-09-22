@@ -1,6 +1,6 @@
 {
   "name": "docx-title",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Adds title page to docx",
   "scripts": {
     "test": "sh ./test/test.sh"
