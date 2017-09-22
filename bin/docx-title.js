@@ -7,7 +7,12 @@ var filter = require('pandoc-filter');
 var fs = require('fs');
 
 var template = [
-  '<% if (data.title) { %><w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t><%= data.title %></w:t></w:r></w:p><% } %>',
+  '<% if (data.title) { %>',
+    '<w:p>',
+      '<w:pPr><w:pStyle w:val="Title"/></w:pPr>',
+      '<w:r><w:t><%= data.title %></w:t></w:r>',
+    '</w:p>',
+  '<% } %>',
 ].join('');
 
 
@@ -21,7 +26,7 @@ process.stdin.on('end', function () {
   var format = (process.argv.length > 2 ? process.argv[2] : '');
   if (format === 'docx' || format === 'openxml') {
     var pandoc = JSON.parse(json);
-    var meta = pandoc[0].unMeta;
+    var meta = pandoc.meta || pandoc[0].unMeta;
 
     // Move title, author, date to too level
     var data = {};
@@ -47,13 +52,14 @@ process.stdin.on('end', function () {
       t: 'RawBlock',
       c: [
         'openxml',
-        _.template(template,data, {variable: 'data'})
+        _.template(template, {variable: 'data'})(data)
       ]
     };
 
     // Insert title page and export
-    pandoc[1].unshift(raw);
+    var content = pandoc.blocks || pandoc[1]
+    content.unshift(raw);
     json = JSON.stringify(pandoc);
-  }  
+  }
   process.stdout.write(json);
 });

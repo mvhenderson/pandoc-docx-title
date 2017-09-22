@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/mvhenderson/pandoc-docx-title",
   "dependencies": {
-    "lodash": "~2.4.1",
-    "pandoc-filter": "~0.1.2"
+    "lodash": "^4.17.4",
+    "pandoc-filter": "^0.1.8"
   }
 }
